@@ -18,5 +18,9 @@ describe("Turn", () => {
 
   it("should return the card", () => {
     expect(turn.returnCard()).to.equal(card);
-  })
+  });
+
+  it("should evaluate the guess for the correct answer", () => {
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
 });
