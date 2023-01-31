@@ -23,4 +23,13 @@ describe("Turn", () => {
   it("should evaluate the guess for the correct answer", () => {
     expect(turn.evaluateGuess()).to.equal(true);
   });
+
+  it("should return 'Correct!' for a correct guess", () => {
+    expect(turn.giveFeedback()).to.equal('Correct!');
+  });
+
+  it("should return 'Incorrect!' for a wrong guess", () => {
+    turn = new Turn('wrong guesss', card);
+    expect(turn.giveFeedback()).to.equal('Incorrect!');
+  });
 });
