@@ -3,9 +3,9 @@ const Turn = require('../src/Turn');
 
 describe("Turn", () => {
   let turn;
-  let guess = "Correct";
+  let guess = "correct guess";
   let card = {
-    correctAnswer: "Correct"
+    correctAnswer: "correct guess"
   };
 
   beforeEach(() => {
@@ -15,4 +15,8 @@ describe("Turn", () => {
   it("should return the guess", () => {
     expect(turn.returnGuess()).to.equal(guess);
   });
+
+  it("should return the card", () => {
+    expect(turn.returnCard()).to.equal(card);
+  })
 });
