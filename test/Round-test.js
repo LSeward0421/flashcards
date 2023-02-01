@@ -63,4 +63,20 @@ describe("Round", () => {
   it("should return the feedback for the guess", () => {
     expect(round.takeTurn("fried")).to.equal("Correct!");
   });
+
+  it('should calculate percentage of correct guesses', () => {
+    round.takeTurn('fried');
+    round.takeTurn('2');
+    round.takeTurn('Dallas');
+    round.calculatePercentCorrect();
+    expect(round.calculatePercentCorrect()).to.equal(66)
+  });
+
+  it('should print to the console a "game over" message', () => {
+    round.takeTurn('fried');
+    round.takeTurn('2');
+    round.takeTurn('Dallas');
+    round.calculatePercentCorrect();
+    expect(round.endRound()).to.equal('** Round over! ** You answered 66% of the questions correctly!')
+  });
 });
