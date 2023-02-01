@@ -2,7 +2,8 @@ const chai = require("chai");
 const expect = chai.expect;
 const Deck = require("../src/Deck");
 const Card = require("../src/Card");
-const Turn = requre("../src/Turn");
+const Round = require("../src/Round");
+const Turn = require("../src/Turn");
 
 describe("Round", () => {
   let card1;
@@ -28,5 +29,38 @@ describe("Round", () => {
 
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
+  });
+
+  it("should start with a deck", () => {
+    expect(round.deck).to.equal(deck);
+  });
+
+  it("should start with no turns", () => {
+    expect(round.turns).to.equal(0);
+  });
+
+  it("should return the current card being played", () => {
+    expect(round.returnCurrentCard()).to.equal(round.currentCard);
+    console.log(round.returnCurrentCard());
+  });
+
+  it("should update the turns count", () => {
+    round.takeTurn("fried");
+    expect(round.turns).to.equal(1);
+  });
+
+  it("should evaluate the guess", () => {
+    expect(round.takeTurn("mashed")).to.equal("Incorrect!");
+    expect(round.takeTurn(3)).to.equal("Correct!");
+  });
+
+  it("should be able to store incorrect guesses", () => {
+    expect(round.incorrectGuesses).to.deep.equal([]);
+    round.takeTurn("wrong answer");
+    expect(round.incorrectGuesses).to.deep.equal([round.currentCard.id]);
+  });
+
+  it("should return the feedback for the guess", () => {
+    expect(round.takeTurn("fried")).to.equal("Correct!");
   });
 });

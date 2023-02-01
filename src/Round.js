@@ -1,7 +1,26 @@
+const Turn = require("../src/Turn");
+
 class Round {
-  constructor() {
-
+  constructor(deck) {
+    this.deck = deck;
+    this.turns = 0;
+    this.currentCard = deck.cards[this.turns];
+    this.incorrectGuesses = [];
   }
-};
 
-module.exports = Round
+  returnCurrentCard() {
+    return this.currentCard;
+  }
+
+  takeTurn(guess) {
+    let turn = new Turn(guess, this.currentCard);
+    this.turns++;
+    this.currentCard = this.deck.cards[this.turns];
+    if(!turn.evaluateGuess()) {
+      this.incorrectGuesses.push(this.currentCard.id)
+    };
+    return turn.giveFeedback();
+  }
+}
+
+module.exports = Round;
