@@ -3,7 +3,6 @@ const expect = chai.expect;
 const Deck = require("../src/Deck");
 const Card = require("../src/Card");
 const Round = require("../src/Round");
-const Turn = require("../src/Turn");
 
 describe("Round", () => {
   let card1;
@@ -41,7 +40,6 @@ describe("Round", () => {
 
   it("should return the current card being played", () => {
     expect(round.returnCurrentCard()).to.equal(round.currentCard);
-    console.log(round.returnCurrentCard());
   });
 
   it("should update the turns count", () => {
