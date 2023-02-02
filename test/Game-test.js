@@ -20,11 +20,11 @@ describe("Game", () => {
     expect(game).to.be.an.instanceof(Game);
   });
 
-  it("should have a currentRound property that is null by default", function () {
+  it("should have a currentRound property that is undefined by default", function () {
     expect(game.currentRound).to.equal(undefined);
   });
 
-  it("should have a deck property that is null by default", function () {
+  it("should have a deck property that is undefined by default", function () {
     expect(game.deck).to.equal(undefined);
   });
 
