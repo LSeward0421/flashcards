@@ -23,4 +23,7 @@ git clone [remote-address] [what you want to name the repo]
   - Use your arrow keys to navigate through the choices.
   - Press enter to make the selection and then enter again to move on to the next quest.
 
+# My Project Board
+ - [my project board](https://trello.com/b/bwSLF86n/flashcards)
+
 
